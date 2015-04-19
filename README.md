@@ -55,3 +55,5 @@ it also wraps the page in the Foundation 5 off canvas menu component and adds â€
 More information about Fondation 5 Off Canvas here: http://foundation.zurb.com/docs/components/offcanvas.html
 
 Please send content for syndication (tutorials, screencasts, etc to joel@mediotype.com), we will syndicate them under the hack-athon brand and make sure to give your group credit.
+
+We will be releasing a repository system for Vanilla Magento turorials in the next couple of weeks, so if you are an 'early adopter', check back soon and update your local systems!
