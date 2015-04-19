@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mediotype_Tutorials>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mediotype_Core/>
+            </depends>
+        </Mediotype_Tutorials>
+    </modules>
+</config>

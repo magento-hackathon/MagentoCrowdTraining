@@ -1,0 +1,9 @@
+<?php /** @var $this Mediotype_Tutorials_Block_Adminhtml_Steps */ ?>
+<div id="tutorials-step-container" mt-tutorial-steps="<?= $this->getBlockJson(); ?>">
+    <ol class="joyride-list" data-joyride>
+        <li ng-repeat="step in currentTutorialPage.steps" data-id="{{::getTargetElementId(step)}}" data-text="Next" data-options="tip_location:{{::step.tip_location}};">
+            <h4>{{::step.step_title}}</h4>
+            <p>{{::step.step_content}}</p>
+        </li>
+    </ol>
+</div>

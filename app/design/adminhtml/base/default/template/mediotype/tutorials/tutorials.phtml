@@ -1,0 +1,5 @@
+<?php
+$filepath = array(
+    Mage::getBaseDir(), "app", "design", "frontend", "base", "default", "template", "mediotype", "tutorials", "tutorials.js"
+);
+echo file_get_contents(implode(DS, $filepath));

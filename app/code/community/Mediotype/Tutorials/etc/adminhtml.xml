@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <mediotype_tutorials>
+                        <title>Mediotype Tutorials</title>
+                        <children>
+                            <edit>
+                                <title>Edit Tutorials</title>
+                            </edit>
+                            <delete>
+                                <title>Delete Tutorials</title>
+                            </delete>
+                        </children>
+                    </mediotype_tutorials>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

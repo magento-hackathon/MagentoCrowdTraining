@@ -1,0 +1,44 @@
+.mediotype-section > dl > dt.label {
+    padding: .25em 0 0 0;
+}
+
+.mediotype-section > dl > dt.label  {
+    background: url(images/mediotype_section_logo.png) no-repeat ;
+    height: 22px;
+    text-indent: -9999px;
+    border-bottom: 1px solid #3f3e3f;
+}
+
+.mediotype-section-description { background: #f4f9f5; padding: 1em 1em .5em 1em; margin: 10px 0; border: solid 1px #a92000; color: #3f3e3f }
+
+/* This code is tested with latest version of Firefox and Chrome */
+.mediotype-box {
+    position: relative;
+    width: 95%;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset;
+    border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
+}
+.mediotype-box:before {
+    position: absolute;
+    width: 84%;
+    height: 29%;
+    left: 8%;
+    border-radius: 50%;
+    z-index: -1;
+    top: 0%;
+    content: "";
+    box-shadow: 0 -9px 40px rgba(0,0,0,0.3);
+}
+.mediotype-box:after {
+    position: absolute;
+    width: 84%;
+    height: 29%;
+    left: 8%;
+    border-radius: 50%;
+    z-index: -1;
+    bottom: 0%;
+    content: "";
+    box-shadow: 0 9px 40px rgba(0,0,0,0.3);
+}

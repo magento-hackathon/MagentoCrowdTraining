@@ -1,0 +1,15 @@
+app/code/community/Mediotype/Tutorials app/code/community/Mediotype/Tutorials
+app/code/community/Mediotype/Core app/code/community/Mediotype/Core
+app/design/adminhtml/base/default/layout/mediotype/tutorials app/design/adminhtml/base/default/layout/mediotype/tutorials
+app/design/adminhtml/base/default/layout/mediotype/core app/design/adminhtml/base/default/layout/mediotype/core
+app/design/adminhtml/base/default/template/mediotype/tutorials app/design/adminhtml/base/default/template/mediotype/tutorials
+app/design/adminhtml/base/default/template/mediotype/core app/design/adminhtml/base/default/template/mediotype/core
+app/design/frontend/base/default/template/mediotype/tutorials app/design/frontend/base/default/template/mediotype/tutorials
+js/mediotype/core js/mediotype/core
+skin/adminhtml/base/default/mediotype/tutorial skin/adminhtml/base/default/mediotype/tutorial
+skin/adminhtml/base/default/mediotype/core skin/adminhtml/base/default/mediotype/core
+skin/adminhtml/base/default/mediotype/images skin/adminhtml/base/default/mediotype/images
+skin/adminhtml/base/default/mediotype/mediotype-adminhtml.css skin/adminhtml/base/default/mediotype/mediotype-adminhtml.css
+skin/frontend/base/default/mediotype/tutorial skin/frontend/base/default/mediotype/tutorial
+app/etc/modules/Mediotype_Tutorials.xml app/etc/modules/Mediotype_Tutorials.xml
+app/etc/modules/Mediotype_Core.xml app/etc/modules/Mediotype_Core.xml

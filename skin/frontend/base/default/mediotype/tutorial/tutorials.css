@@ -1,0 +1,105 @@
+.tut-selectable:nth-child(even) {
+    border: 3px solid #00BB00 !important;
+    margin: 5px !important;
+}
+
+.tut-selectable:nth-child(odd) {
+    border: 3px solid #006600 !important;
+    margin: 5px !important;
+}
+
+.tut-selectable:hover {
+    border: 5px solid #0000FF !important;
+}
+
+.tut-current-element {
+    /*box-shadow: 10px 10px 10px #0CCFCD;*/
+}
+
+.tut-editor-edit-notification {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 32pt;
+    color: yellow !important;
+    opacity: 0.5;
+}
+.tut-editor-edit-notification:hover {
+    opacity: 1;
+}
+
+.tut-editor-active-element {
+    border: 5px solid #DD00DD !important;
+}
+
+.off-canvas-wrap aside .accordion {
+    /*background-color: #FF0000;*/
+}
+
+.off-canvas-wrap aside input[type='checkbox'] {
+    width: auto;
+    margin: 0 10px 5px 0;
+}
+
+ul.off-canvas-list li label {
+    /*color: #EF672F !important;*/
+}
+
+.off-canvas-wrap aside .accordion .accordion-navigation > a {
+    display: block;
+    padding: 0.3rem 0.9375rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: none repeat scroll 0% 0% #444;
+    border-top: 1px solid #5E5E5E;
+    border-bottom: medium none;
+    margin: 0px;
+    color:#999;
+}
+
+.off-canvas-wrap aside .accordion .accordion-navigation > a:hover {
+    background: none repeat scroll 0% 0% #000 !important;
+
+}
+
+.off-canvas-wrap aside .accordion .accordion-navigation.active > a {
+    background: none repeat scroll 0% 0% #000;
+    color: #FFF;
+}
+
+.off-canvas-wrap aside .accordion .accordion-navigation > .content {
+    background: none repeat scroll 0% 0% transparent;
+    margin: 5px;
+    padding: 0;
+    border: 1px solid #666 !important;
+}
+
+.joyride-expose-cover {
+    z-index: 100 !important;
+}
+
+.joyride-expose-wrapper {
+    box-shadow: 0 0 15px #0de0de !important;
+}
+
+.search-dropdown {
+    margin-left: -180px !important;
+    margin-top: -20px !important;
+    background: #FFF !important;
+    border: 1px solid #000 !important;
+}
+
+a.success {
+    background-color: #43ac6a;
+    border-color: #368a55;
+    color: white;
+}
+
+a.success:hover, a.success:focus {
+    background-color: #368a55 !important;
+}
+
+.right-off-canvas-menu ul.off-canvas-list li.has-submenu > a:before {
+    content: '' !important;
+}

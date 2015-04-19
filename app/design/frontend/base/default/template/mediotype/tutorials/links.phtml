@@ -1,0 +1,208 @@
+<?php /** @var $this Mediotype_Tutorials_Block_Adminhtml_Links */ ?>
+<ul class="off-canvas-list" mt-tutorial-links="<?= $this->getBlockJson() ?>">
+    <li ng-show="mode=='list'">
+        <?php if (Mage::helper('mediotype_tutorials')->canEdit()): ?>
+            <a class="button success tiny right" style="margin: 0" ng-click="setMode('new')"><i
+                    class="fi-plus"></i>New Tutorial</a>
+        <?php endif; ?>
+        <input type="text" placeholder="Search Tutorials" class="small-9 column size-12" style="height: 2.5rem;"/>
+        <a href="#" class="small-3 column button disabled" style="height: 2.5rem;"><i
+                class="fi-magnifying-glass"></i></a>
+
+        <a id="page-help-link" href="<?php echo Mage::helper('adminhtml')->getPageHelpUrl() ?>"
+           target="blank" class="left"><?php echo $this->__('Public knowledge base') ?></a>
+        <script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
+
+        <dl class="accordion" data-accordion style="clear:both;">
+            <dd class="accordion-navigation active">
+                <a href="#tut_category_currentPage" class="active">Current Page</a>
+
+                <div id="tut_category_currentPage" class="content active">
+                        <span ng-repeat="tutorial in pageTutorials">
+                            <?php
+                                $playButtonSize = 12;
+                            if (Mage::helper('mediotype_tutorials')->canEdit()) {
+                                $playButtonSize -= 2;
+                            }
+                            if (Mage::helper('mediotype_tutorials')->canDelete()) {
+                                $playButtonSize -= 2;
+                            }
+                            ?>
+                            <a href="#" ng-click="startTutorial(tutorial.id)"
+                               class="small-<?= $playButtonSize?> column" style="overflow: scroll; white-space: nowrap; padding-left:0"><i
+                                    class="fi-play size-12"
+                                    style="color:#008CBA;margin:0 2px;"></i>{{::tutorial.label}}</a>
+                            <?php if (Mage::helper('mediotype_tutorials')->canEdit()): ?>
+                                <a href="#" class="small-2 column" ng-click="setMode('edit', tutorial.id)"
+                                   style="border-left: 1px solid #262626; color:#FFFFAA;"><i
+                                        class="fi-pencil size-12"></i></a>
+                            <?php endif; ?>
+                            <?php if (Mage::helper('mediotype_tutorials')->canDelete()): ?>
+                                <a href="<?= $this->getUrl('tutorials/adminhtml_post/delete') ?>id/{{::tutorial.id}}"
+                                   class="small-2 column" style="border-left: 1px solid #262626; color: #FF0D0D;"><i
+                                        class="fi-trash size-12"></i></a>
+                            <?php endif; ?>
+                        </span>
+                </div>
+            </dd>
+        </dl>
+    </li>
+    <?php echo $this->getAllTutorialsHtml($this->getAllTutorialsArray()); ?>
+
+    <li ng-show="mode=='edit'">
+        <form action="<?= $this->getUrl('tutorials/adminhtml_post/save') ?>" method="post">
+            <input type="hidden" name="form_key" value="<? echo $this->getFormKey(); ?>"/>
+
+            <div class="row no-margin no-padding" style="border: none;">
+                <button class="small-3 column button tiny no-margin" type="submit"><i class="fi-save"></i>Save</button>
+                <a class="small-5 column button alert tiny no-margin" ng-click="setMode('list')"><i class="fi-x"></i>Cancel</a>
+            </div>
+            <input type="hidden" name="tutorials[{{activeTutorial.id}}]" value="{{activeTutorial.id}}"/>
+            <label for="tutorial_label">Tutorial Name</label><input id="tutorial_label"
+                                                                    name="tutorials[{{activeTutorial.id}}][label]"
+                                                                    class="small-12 size-12"
+                                                                    ng-model="activeTutorial.label"/>
+            <dl class="accordion" data-accordion>
+                <dd class="accordion-navigation">
+                    <a href="#tutorialMetadata">Tutorial Meta Data</a>
+
+                    <div id="tutorialMetadata" class="content">
+                        <label for="categorySelect">Category</label>
+                        <?php // echo $this->getChildHtml('tut.categories'); ?>
+                        <label for="tutorialDescription">Description</label>
+                        <textarea id="tutorialDescription"
+                                  name="tutorials[{{activeTutorial.id}}][description]"
+                                  class="small-12 size-12"
+                                  ng-model="activeTutorial.description"></textarea>
+                        <label for="tutorialKeywords>">Keywords</label>
+                        <textarea id="tutorialKeywords"
+                                  name="tutorials[{{activeTutorial.id}}][keywords]"
+                                  class="small-12 size-12"
+                                  ng-model="activeTutorial.keywords"></textarea>
+                    </div>
+                </dd>
+            </dl>
+
+
+            <label style="padding: 10px 0 10px 2px;">
+                <a class="small-3 success tiny no-margin" ng-click="addPage()"
+                   style="border: 0px none; border-radius: 1000px; padding: 5px; display: inline; margin: 5px !important;"><i
+                        class="fi-plus"></i></a>Pages</label>
+            <dl class="accordion" data-accordion>
+                <dd class="accordion-navigation" ng-repeat="page in activeTutorial.pages"
+                    ng-class="{active:page.url_key == pageRoute}">
+                    <a href="#page_{{$index+1}}" ng-if="page.url_key != pageRoute" ng-click="gotoPage(page)">Page
+                        {{$index + 1}}</a>
+
+
+                    <a href="#page_{{$index+1}}" ng-click="setActivePage(page)" ng-if="page.url_key == pageRoute"><i
+                            class="fi-marker size-16"></i>Page {{$index + 1}}</a>
+
+                    <div id="page_{{$index+1}}" class="content " ng-class="{active:page.url_key == pageRoute}"
+                         ng-show="page.url_key == pageRoute">
+                        <label for="page_{{$index+1}}_url_key">URL Key</label>
+                        <input id="page_{{$index+1}}_url_key" type="text" class="small-12 size-12"
+                               name="tutorials[{{activeTutorial.id}}][pages][{{$index}}][url_key]"
+                               ng-model="page.url_key"
+                               ng-readonly="true"/>
+
+                        <label for="page_{{$index+1}}_params">Params</label>
+                        <input id="page_{{$index+1}}_params"
+                               class="small-12 size-12"
+                               name="tutorials[{{activeTutorial.id}}][pages][{{$index}}][params]"
+                               ng-model="page.params"/>
+
+                        <label for="use_expose"><input id="use_expose"
+                                                       name="tutorials[{{activeTutorial.id}}][pages][{{$index}}][use_expose]"
+                                                       type="checkbox"
+                                                       class="small-12 size-12"
+                                                       ng-checked="page.use_expose"/>Use Expose</label>
+                        <dl class="accordion" data-accordion>
+                            <dd class="accordion-navigation">
+                                <a href="#page_tab_{{$index}}_js">Page Callbacks</a>
+
+                                <div id="page_tab_{{$index}}_js" class="content">
+                                    <label for="pre_page_callback>">Pre Page</label>
+                                                <textarea id="pre_page_callback"
+                                                          name="tutorials[{{activeTutorial.id}}][pages][{{$index}}][pre_page_callback]"
+                                                          class="small-12 size-12"
+                                                          ng-model="page.pre_page_callback"></textarea>
+
+                                    <label for="post_page_callback>">Post Page</label>
+                                                <textarea id="post_page_callback"
+                                                          name="tutorials[{{activeTutorial.id}}][pages][{{$index}}][post_page_callback]"
+                                                          class="small-12 size-12"
+                                                          ng-model="page.post_page_callback"></textarea>
+
+                                </div>
+                            </dd>
+                        </dl>
+
+                        <label style="padding: 10px 0 10px 2px;">
+                            <a class="small-3 success tiny no-margin" ng-click="addStep()"
+                               style="border: 0px none; border-radius: 1000px; padding: 5px; display: inline; margin: 5px !important;"><i
+                                    class="fi-plus"></i></a>Steps</label>
+                        <dl class="accordion" data-accordion>
+                            <dd class="accordion-navigation" ng-repeat="step in page.steps">
+                                <a href="#step_tab_{{$index}}" ng-click="setActiveStep(step)">Step {{$index +
+                                    1}}</a>
+
+                                <div id="step_tab_{{$index}}" class="content ">
+                                    <label for="step_title[{{$index}}]">Step Title</label><input
+                                        id="step_title[{{$index}}]"
+                                        name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][title]"
+                                        ng-model="step.step_title"
+                                        class="small-12 size-12"/><br/>
+
+                                    <label for="step_content[{{$index}}]">Step Content</label><textarea
+                                        id="step_content[{{$index}}]"
+                                        name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][content]"
+                                        class="small-12 size-12"
+                                        ng-model="step.step_content"></textarea>
+
+                                    <label for="target_element_id_{{$index}}">Target Element</label><input
+                                        id="target_element_id_{{$index}}"
+                                        name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][target_element_id]"
+                                        ng-model="step.target_element_id" class="small-12 size-12"/>
+                                    <a href="#" ng-click="startElementSelector($index, $event)" style="margin:0;"><i
+                                            class="fi-target"></i>Select Element</a>
+                                    <label for="tip_location_{{$index}}">Tip Location</label>
+                                    <select id="tip_location_{{$index}}"
+                                            name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][tip_location]"
+                                            class="small-12 size-12" ng-model="step.tip_location">
+                                        <option value="bottom">Bottom</option>
+                                        <option value="top">Top</option>
+                                        <option value="left">Left</option>
+                                        <option value="right">Right</option>
+                                    </select>
+                                    <dl class="accordion" data-accordion>
+                                        <dd class="accordion-navigation">
+                                            <a href="#step_tab_{{$index}}_js">JS Callbacks</a>
+
+                                            <div id="step_tab_{{$index}}_js" class="content">
+                                                <label for="tutorialKeywords>">Pre Step</label>
+                                                <textarea id="tutorialKeywords"
+                                                          name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][pre_step_callback]"
+                                                          class="small-12 size-12"
+                                                          ng-model="step.pre_step_callback"></textarea>
+
+                                                <label for="tutorialKeywords>">Post Step</label>
+                                                <textarea id="tutorialKeywords"
+                                                          name="tutorials[{{activeTutorial.id}}][pages][{{$parent.$index}}][steps][{{$index}}][post_step_callback]"
+                                                          class="small-12 size-12"
+                                                          ng-model="step.post_step_callback"></textarea>
+
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </dd>
+            </dl>
+
+
+        </form>
+    </li>
+</ul>

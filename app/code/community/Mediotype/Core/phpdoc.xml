@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <parser>
+    <target>../../../../../var/phpdoc/module/mediotype_core</target>
+  </parser>
+  <transformer>
+    <target>../../../../../var/phpdoc/module/mediotype_core</target>
+  </transformer>
+  <files>
+    <directory>.</directory>
+  </files>
+</phpdoc>

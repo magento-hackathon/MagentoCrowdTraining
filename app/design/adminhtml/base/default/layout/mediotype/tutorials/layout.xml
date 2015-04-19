@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <update handle="foundation_base"></update>
+        <reference name="angular.scripts">
+            <block type="adminhtml/template" template="mediotype/tutorials/tutorials.phtml"></block>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <name>mediotype/tutorial/tutorials.css</name>
+            </action>
+        </reference>
+        <reference name="menu">
+            <action method="setTemplate">
+                <template>mediotype/tutorials/page/menu.phtml</template>
+            </action>
+        </reference>
+        <reference name="offcanvas.right">
+            <block type="mediotype_tutorials/adminhtml_links" as="tutorial.links" name="tutorial.links"
+                   template="mediotype/tutorials/links.phtml">
+                <!--<block type="mediotype_tutorials/adminhtml_categories" as="tut.categories" name="tut.categories"/>-->
+            </block>
+            <block type="mediotype_tutorials/adminhtml_steps" as="tutorial.steps" name="tutorial.steps"
+                   template="mediotype/tutorials/steps.phtml"/>
+        </reference>
+    </default>
+
+</layout>

@@ -1,0 +1,8 @@
+<?php /** @var $this Mediotype_Core_Block_Adminhtml_AngularScripts */ ?>
+<script type="text/javascript">
+    (function ($) {
+        var app = angular.module('magento', []);
+        <?php echo $this->getChildHtml(); ?>
+    })
+    (jQuery);
+</script>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mediotype translate="label" module="mediotype_core">
+            <label><![CDATA[<div>Mediotype</div>]]></label>
+            <class>mediotype-section</class>
+            <sort_order>101</sort_order>
+        </mediotype>
+    </tabs>
+    <sections>
+        <mediotype_general translate="label" module="mediotype_core">
+            <label>General</label>
+            <tab>mediotype</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <header>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>mediotype_core/test</frontend_model>
+                </header>
+                <debug_settings translate="label">
+                    <label>Debug Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <logging_enabled translate="label">
+                            <label>Logging Enabled</label>
+                            <comment>Enables logging for all Mediotype extensions</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </logging_enabled>
+                        <recursion_logging_enabled translate="label">
+                            <label>Recursion Logging Enabled</label>
+                            <comment>Enables logging for all Mediotype recursion log outputs</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mediotype_core/system_config_source_onoff</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </recursion_logging_enabled>
+                        <logging_level translate="label">
+                            <label>Debug Logging Level</label>
+                            <comment>Choose, Error, Warnning, or Verbose</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mediotype_core/system_config_source_debug_level</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </logging_level>
+                    </fields>
+                </debug_settings>
+            </groups>
+        </mediotype_general>
+    </sections>
+</config>

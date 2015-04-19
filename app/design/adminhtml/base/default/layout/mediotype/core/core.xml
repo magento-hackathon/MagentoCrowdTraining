@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>mediotype/mediotype-adminhtml.css</stylesheet>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <script>mage/adminhtml/browser.js</script>
+            </action>
+        </reference>
+
+    </default>
+
+    <foundation_base>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>mediotype/core/foundation/page.phtml</template>
+            </action>
+            <block type="mediotype_core/adminhtml_angularScripts" name="angular.scripts"/>
+            <block type="adminhtml/template" template="mediotype/core/foundation/offcanvas-right.phtml"
+                   name="offcanvas.right"/>
+            <block type="adminhtml/template" name="offcanvas.left"/>
+        </reference>
+        <reference name="head">
+            <action method="addJs">
+                <name>mediotype/core/foundation/modernizr.js</name>
+            </action>
+            <action method="addJs">
+                <name>mediotype/core/jquery/jquery-2.1.1.min.js</name>
+            </action>
+            <action method="addJs">
+                <name>mediotype/core/foundation/fastclick.js</name>
+            </action>
+            <action method="addJs">
+                <name>mediotype/core/foundation/foundation.min.js</name>
+            </action>
+            <action method="addJs">
+                <name>mediotype/core/angular/angular.min.js</name>
+            </action>
+            <action method="addCss">
+                <name>mediotype/core/foundation/foundation.css</name>
+            </action>
+            <action method="addCss">
+                <name>mediotype/core/foundation/foundation-icons.css</name>
+            </action>
+        </reference>
+    </foundation_base>
+</layout>

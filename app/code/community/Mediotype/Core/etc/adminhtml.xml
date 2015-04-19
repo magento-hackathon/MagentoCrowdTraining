@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <mediotype>
+                        <title>Mediotype</title>
+                    </mediotype>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mediotype_general>
+                                        <title>Mediotype General</title>
+                                    </mediotype_general>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
