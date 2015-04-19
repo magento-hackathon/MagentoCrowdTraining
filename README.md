@@ -1,5 +1,7 @@
 # MagentoCrowdTraining
 
+>>We need community contributions for base Vanilla Magento admin tutotials, and correcting any JS issues, there are open issues on github if you want to contribute that is a great place to start !
+
 ##Tutorial Module Overview
 
 The tutorial module layout file
