@@ -51,3 +51,5 @@ The foundation/page.phtml template is a copy of the stock magento adminhtml page
 it also wraps the page in the Foundation 5 off canvas menu component and adds “offcanvas.right” and “offcanvas.left” blocks for inserting off canvas content.
 
 More information about Fondation 5 Off Canvas here: http://foundation.zurb.com/docs/components/offcanvas.html
+
+Please send content for syndication (tutorials, screencasts, etc to joel@mediotype.com), we will syndicate them under the hack-athon brand and make sure to give your group credit.
