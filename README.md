@@ -28,6 +28,8 @@ beforePage, afterPage, beforeStep and afterStep
 
 these can be used when scripting a tutorial to trigger css and events.
 
+>> Currently js callbacks are used to do things like add a css class to make a nav element hover, more exmples will be coming, similar functionality would be used to expand accordions in system configuration.
+
 ##Mediotype Core Overview as it relates to Foundation 5 and Magento:
 
 The Mediotype_Core module layout file
